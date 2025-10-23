@@ -29,8 +29,8 @@ Painel interativo para visualização e análise de ocorrências do SESI/SENAI A
 
 ### 1. Clone o repositório
 ```bash
-git clone https://github.com/pitter-silva/dashboard-ocorrencias-2025.git
-cd dashboard-ocorrencias-2025
+git clone https://github.com/pitterpaulinosilva-ops/DASHBOARD-OCORRENCIA.git
+cd DASHBOARD-OCORRENCIA
 ```
 
 ### 2. Instalar dependências
