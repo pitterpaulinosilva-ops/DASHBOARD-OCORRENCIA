@@ -29,7 +29,7 @@ Painel interativo para visualização e análise de ocorrências do SESI/SENAI A
 
 ### 1. Clone o repositório
 ```bash
-git clone https://github.com/seu-usuario/dashboard-ocorrencias-2025.git
+git clone https://github.com/pitter-silva/dashboard-ocorrencias-2025.git
 cd dashboard-ocorrencias-2025
 ```
 
@@ -85,8 +85,14 @@ O projeto inclui `vercel.json` com:
 ## 📁 Estrutura do Projeto
 ```
 dashboard-ocorrencias-2025/
+├── assets/             # Recursos estáticos
+│   └── icons/          # Ícones do projeto
+│       ├── png/        # Ícones em formato PNG
+│       └── svg/        # Ícones em formato SVG
 ├── index.html          # Aplicação principal (SPA)
+├── index.html.backup   # Backup da versão anterior
 ├── package.json        # Configurações e scripts
+├── package-lock.json   # Lock de dependências
 ├── vercel.json         # Configurações de deploy Vercel
 ├── .gitignore          # Arquivos ignorados pelo Git
 └── README.md           # Documentação

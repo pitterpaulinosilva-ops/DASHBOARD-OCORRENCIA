@@ -1889,6 +1889,544 @@
                 padding: 8px;
             }
         }
+
+        /* Reports Styles */
+        .reports-section {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-gray);
+        }
+
+        .reports-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .reports-title {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--sesi-blue);
+            margin: 0;
+        }
+
+        .reports-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .reports-nav {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+            border-bottom: 2px solid var(--border-gray);
+            padding-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .report-tab-btn {
+            padding: 12px 20px;
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 8px 8px 0 0;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .report-tab-btn:hover {
+            background: var(--light-gray);
+            color: var(--text-dark);
+        }
+
+        .report-tab-btn.active {
+            background: var(--sesi-blue);
+            color: var(--white);
+        }
+
+        .reports-filters {
+            display: flex;
+            gap: 16px;
+            align-items: end;
+            margin-bottom: 24px;
+            padding: 16px;
+            background: var(--light-gray);
+            border-radius: 8px;
+            flex-wrap: wrap;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .filter-group label {
+            font-weight: 500;
+            color: var(--text-dark);
+            font-size: 14px;
+        }
+
+        .report-content {
+            display: none;
+        }
+
+        .report-content.active {
+            display: block;
+        }
+
+        .report-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .report-header h3 {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--sesi-blue);
+            margin: 0;
+        }
+
+        .report-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .report-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+            padding: 0 4px;
+        }
+
+        @media (max-width: 768px) {
+            .report-summary {
+                grid-template-columns: 1fr;
+                gap: 16px;
+                padding: 0;
+            }
+            
+            .summary-card {
+                padding: 20px 16px;
+            }
+            
+            .summary-card h4 {
+                font-size: 14px;
+                margin-bottom: 12px;
+            }
+            
+            .summary-value {
+                font-size: 36px;
+            }
+            
+            .card-icon {
+                width: 40px;
+                height: 40px;
+                margin-bottom: 12px;
+            }
+            
+            .card-icon svg {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .summary-card {
+                padding: 16px 12px;
+            }
+            
+            .summary-value {
+                font-size: 32px;
+            }
+            
+            .card-icon {
+                width: 36px;
+                height: 36px;
+            }
+        }
+
+        .summary-card {
+            background: linear-gradient(135deg, var(--white) 0%, #f8fafc 100%);
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 28px 24px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .summary-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--sesi-blue), #3b82f6, #06b6d4);
+            border-radius: 16px 16px 0 0;
+        }
+
+        .summary-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12), 0 4px 8px rgba(0,0,0,0.06);
+            border-color: #cbd5e1;
+        }
+
+        .summary-card h4 {
+            font-size: 16px;
+            color: #64748b;
+            margin: 0 0 16px 0;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px auto;
+            color: var(--sesi-blue);
+            transition: all 0.3s ease;
+        }
+
+        .summary-card:hover .card-icon {
+            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+            transform: scale(1.1);
+        }
+
+        .card-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .summary-value {
+            font-size: 42px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--sesi-blue), #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+
+        .statistics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            background: var(--white);
+            border: 1px solid var(--border-gray);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        }
+
+        .stat-card h4 {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin: 0 0 12px 0;
+            font-weight: 500;
+        }
+
+        .stat-value {
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--sesi-blue);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .stat-change {
+            font-size: 16px;
+            font-weight: 500;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        .stat-change.positive {
+            color: #10b981;
+            background: #d1fae5;
+        }
+
+        .stat-change.negative {
+            color: #ef4444;
+            background: #fee2e2;
+        }
+
+        .statistics-charts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 24px;
+        }
+
+        .trends-controls {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 24px;
+            align-items: end;
+            flex-wrap: wrap;
+        }
+
+        .trend-selector,
+        .trend-period {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .trends-charts {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        .trends-charts .chart-container.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .status-overview {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding: 20px;
+            background: var(--light-gray);
+            border-radius: 8px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .indicator-circle {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #10b981;
+            animation: pulse 2s infinite;
+        }
+
+        .indicator-circle.warning {
+            background: #f59e0b;
+        }
+
+        .indicator-circle.error {
+            background: #ef4444;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .indicator-text h4 {
+            margin: 0;
+            font-size: 16px;
+            color: var(--text-dark);
+        }
+
+        .indicator-text span {
+            font-size: 16px;
+            color: var(--text-muted);
+        }
+
+        .status-metrics {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .metric {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .metric-label {
+            font-size: 14px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .metric-value {
+            font-size: 16px;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .status-card {
+            background: var(--white);
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .status-card.urgent {
+            border-left: 4px solid #ef4444;
+        }
+
+        .status-card.warning {
+            border-left: 4px solid #f59e0b;
+        }
+
+        .status-card.normal {
+            border-left: 4px solid #10b981;
+        }
+
+        .status-card.resolved {
+            border-left: 4px solid #6b7280;
+        }
+
+        .status-card h4 {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin: 0 0 8px 0;
+            font-weight: 500;
+        }
+
+        .status-count {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--sesi-blue);
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .status-list {
+            max-height: 100px;
+            overflow-y: auto;
+            text-align: left;
+        }
+
+        .status-charts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 24px;
+        }
+
+        .chart-container {
+            background: var(--white);
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .chart-container h4 {
+            font-size: 16px;
+            color: var(--text-dark);
+            margin: 0 0 16px 0;
+            font-weight: 600;
+        }
+
+        .report-table-container {
+            background: var(--white);
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .report-table-container .table {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .reports-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .reports-nav {
+                flex-direction: column;
+            }
+
+            .reports-filters {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .report-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .statistics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .statistics-charts {
+                grid-template-columns: 1fr;
+            }
+
+            .status-overview {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .status-metrics {
+                justify-content: space-between;
+            }
+
+            .status-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .status-charts {
+                grid-template-columns: 1fr;
+            }
+
+            .trends-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1957,7 +2495,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#reports" class="nav-link">
+                            <a href="#reports" class="nav-link" data-tab="reports">
                                 <span class="nav-icon">
                                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <rect x="3" y="3" width="18" height="18" rx="2" fill="currentColor" opacity="0.1" stroke="currentColor" stroke-width="1.5"/>
@@ -2327,6 +2865,299 @@
                         <button class="btn btn-outline button" id="prevPage" disabled>Anterior</button>
                         <div class="page-numbers" id="pageNumbers"></div>
                         <button class="btn btn-outline button" id="nextPage">Próximo</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Reports Content -->
+        <div id="reportsContent" class="tab-content">
+            <section class="reports-section">
+                <div class="reports-header">
+                    <h2 class="reports-title">Relatórios do Sistema</h2>
+                    <div class="reports-actions">
+                        <button class="btn btn-primary button" id="refreshReportsBtn">
+                            <span>🔄</span> Atualizar
+                        </button>
+                        <button class="btn btn-secondary button" id="scheduleReportsBtn">
+                            <span>📅</span> Agendar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Reports Navigation -->
+                <div class="reports-nav">
+                    <button class="report-tab-btn active" data-report="recent">Atividades Recentes</button>
+                    <button class="report-tab-btn" data-report="statistics">Estatísticas Gerais</button>
+                    <button class="report-tab-btn" data-report="trends">Tendências</button>
+                    <button class="report-tab-btn" data-report="status">Status Atual</button>
+                </div>
+
+                <!-- Global Filters -->
+                <div class="reports-filters">
+                    <div class="filter-group">
+                        <label>Período:</label>
+                        <select id="reportPeriodFilter" class="form-control">
+                            <option value="7">Últimos 7 dias</option>
+                            <option value="30" selected>Últimos 30 dias</option>
+                            <option value="90">Últimos 90 dias</option>
+                            <option value="365">Último ano</option>
+                            <option value="custom">Personalizado</option>
+                        </select>
+                    </div>
+                    <div class="filter-group" id="customDateRange" style="display: none;">
+                        <label>De:</label>
+                        <input type="date" id="reportStartDate" class="form-control">
+                        <label>Até:</label>
+                        <input type="date" id="reportEndDate" class="form-control">
+                    </div>
+                    <div class="filter-group">
+                        <label>Categoria:</label>
+                        <select id="reportCategoryFilter" class="form-control">
+                            <option value="">Todas</option>
+                            <option value="notificadora">Por Notificadora</option>
+                            <option value="origem">Por Origem</option>
+                            <option value="status">Por Status</option>
+                            <option value="severidade">Por Severidade</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary button" id="applyReportFilters">Aplicar Filtros</button>
+                </div>
+
+                <!-- Recent Activities Report -->
+                <div id="recentReport" class="report-content active">
+                    <div class="report-header">
+                        <h3>Relatório de Atividades Recentes</h3>
+                        <div class="report-actions">
+                            <button class="btn btn-outline button" id="exportRecentPDF">
+                                <span>📄</span> PDF
+                            </button>
+                            <button class="btn btn-outline button" id="exportRecentExcel">
+                                <span>📊</span> Excel
+                            </button>
+                        </div>
+                    </div>
+                    <div class="report-summary">
+                        <div class="summary-card">
+                            <div class="card-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2C13.1046 2 14 2.89543 14 4V6C17.3137 6 20 8.68629 20 12V18C20 19.1046 19.1046 20 18 20H6C4.89543 20 4 19.1046 4 18V12C4 8.68629 6.68629 6 10 6V4C10 2.89543 10.8954 2 12 2Z" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M12 10V14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    <path d="M12 16H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <h4>Últimas 24h</h4>
+                            <span class="summary-value" id="recent24h">0</span>
+                        </div>
+                        <div class="summary-card">
+                            <div class="card-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8 2V5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    <path d="M16 2V5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M3 10H21" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <h4>Última Semana</h4>
+                            <span class="summary-value" id="recentWeek">0</span>
+                        </div>
+                        <div class="summary-card">
+                            <div class="card-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M21 10C21 16.075 16.075 21 10 21C4.925 21 0 16.075 0 10C0 4.925 4.925 0 10 0C16.075 0 21 4.925 21 10Z" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <h4>Último Mês</h4>
+                            <span class="summary-value" id="recentMonth">0</span>
+                        </div>
+                    </div>
+                    <div class="report-table-container">
+                        <table class="table" id="recentActivitiesTable">
+                            <thead>
+                                <tr>
+                                    <th>Data/Hora</th>
+                                    <th>Código</th>
+                                    <th>Ocorrência</th>
+                                    <th>Status</th>
+                                    <th>Responsável</th>
+                                    <th>Ação</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recentActivitiesBody">
+                                <!-- Populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- General Statistics Report -->
+                <div id="statisticsReport" class="report-content">
+                    <div class="report-header">
+                        <h3>Relatório de Estatísticas Gerais</h3>
+                        <div class="report-actions">
+                            <button class="btn btn-outline button" id="exportStatsPDF">
+                                <span>📄</span> PDF
+                            </button>
+                            <button class="btn btn-outline button" id="exportStatsExcel">
+                                <span>📊</span> Excel
+                            </button>
+                        </div>
+                    </div>
+                    <div class="statistics-grid">
+                        <div class="stat-card">
+                            <h4>Total de Registros</h4>
+                            <span class="stat-value" id="totalRecords">0</span>
+                            <span class="stat-change" id="recordsChange">+0%</span>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Ocorrências Abertas</h4>
+                            <span class="stat-value" id="openIncidents">0</span>
+                            <span class="stat-change" id="openChange">+0%</span>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Ocorrências Fechadas</h4>
+                            <span class="stat-value" id="closedIncidents">0</span>
+                            <span class="stat-change" id="closedChange">+0%</span>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Taxa de Resolução</h4>
+                            <span class="stat-value" id="resolutionRate">0%</span>
+                            <span class="stat-change" id="resolutionChange">+0%</span>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Tempo Médio de Resolução</h4>
+                            <span class="stat-value" id="avgResolutionTime">0 dias</span>
+                            <span class="stat-change" id="timeChange">+0%</span>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Notificadoras Ativas</h4>
+                            <span class="stat-value" id="activeNotifiers">0</span>
+                            <span class="stat-change" id="notifiersChange">+0%</span>
+                        </div>
+                    </div>
+                    <div class="statistics-charts">
+                        <div class="chart-container">
+                            <h4>Distribuição por Status</h4>
+                            <canvas id="statsStatusChart"></canvas>
+                        </div>
+                        <div class="chart-container">
+                            <h4>Distribuição por Origem</h4>
+                            <canvas id="statsOriginChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trends Report -->
+                <div id="trendsReport" class="report-content">
+                    <div class="report-header">
+                        <h3>Relatório de Tendências</h3>
+                        <div class="report-actions">
+                            <button class="btn btn-outline button" id="exportTrendsPDF">
+                                <span>📄</span> PDF
+                            </button>
+                            <button class="btn btn-outline button" id="exportTrendsExcel">
+                                <span>📊</span> Excel
+                            </button>
+                        </div>
+                    </div>
+                    <div class="trends-controls">
+                        <div class="trend-selector">
+                            <label>Métrica:</label>
+                            <select id="trendMetric" class="form-control">
+                                <option value="incidents">Número de Ocorrências</option>
+                                <option value="resolution">Taxa de Resolução</option>
+                                <option value="response">Tempo de Resposta</option>
+                                <option value="severity">Distribuição de Severidade</option>
+                            </select>
+                        </div>
+                        <div class="trend-period">
+                            <label>Agrupamento:</label>
+                            <select id="trendPeriod" class="form-control">
+                                <option value="daily">Diário</option>
+                                <option value="weekly" selected>Semanal</option>
+                                <option value="monthly">Mensal</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="trends-charts">
+                        <div class="chart-container full-width">
+                            <canvas id="trendsLineChart"></canvas>
+                        </div>
+                        <div class="chart-container">
+                            <h4>Comparação Período Anterior</h4>
+                            <canvas id="trendsComparisonChart"></canvas>
+                        </div>
+                        <div class="chart-container">
+                            <h4>Projeção Tendência</h4>
+                            <canvas id="trendsProjectionChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Current Status Report -->
+                <div id="statusReport" class="report-content">
+                    <div class="report-header">
+                        <h3>Relatório de Status Atual</h3>
+                        <div class="report-actions">
+                            <button class="btn btn-outline button" id="exportStatusPDF">
+                                <span>📄</span> PDF
+                            </button>
+                            <button class="btn btn-outline button" id="exportStatusExcel">
+                                <span>📊</span> Excel
+                            </button>
+                        </div>
+                    </div>
+                    <div class="status-overview">
+                        <div class="status-indicator">
+                            <div class="indicator-circle" id="systemStatus"></div>
+                            <div class="indicator-text">
+                                <h4>Status do Sistema</h4>
+                                <span id="systemStatusText">Operacional</span>
+                            </div>
+                        </div>
+                        <div class="status-metrics">
+                            <div class="metric">
+                                <span class="metric-label">Última Atualização:</span>
+                                <span class="metric-value" id="lastUpdate">--</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Próxima Sincronização:</span>
+                                <span class="metric-value" id="nextSync">--</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="status-grid">
+                        <div class="status-card urgent">
+                            <h4>Críticas</h4>
+                            <span class="status-count" id="criticalCount">0</span>
+                            <div class="status-list" id="criticalList"></div>
+                        </div>
+                        <div class="status-card warning">
+                            <h4>Atenção</h4>
+                            <span class="status-count" id="warningCount">0</span>
+                            <div class="status-list" id="warningList"></div>
+                        </div>
+                        <div class="status-card normal">
+                            <h4>Normais</h4>
+                            <span class="status-count" id="normalCount">0</span>
+                            <div class="status-list" id="normalList"></div>
+                        </div>
+                        <div class="status-card resolved">
+                            <h4>Resolvidas</h4>
+                            <span class="status-count" id="resolvedCount">0</span>
+                            <div class="status-list" id="resolvedList"></div>
+                        </div>
+                    </div>
+                    <div class="status-charts">
+                        <div class="chart-container">
+                            <h4>Distribuição Atual</h4>
+                            <canvas id="statusDistributionChart"></canvas>
+                        </div>
+                        <div class="chart-container">
+                            <h4>Evolução Semanal</h4>
+                            <canvas id="statusEvolutionChart"></canvas>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -4154,14 +4985,31 @@
                     this.classList.add('active');
                     
                     // Show corresponding content
-                    const targetContent = tabId === 'dashboard' ? 
-                        document.getElementById('dashboardContent') : 
-                        document.getElementById('dataContent');
-                    targetContent.classList.add('active');
+                    let targetContent;
+                    if (tabId === 'dashboard') {
+                        targetContent = document.getElementById('dashboardContent');
+                    } else if (tabId === 'data') {
+                        targetContent = document.getElementById('dataContent');
+                    } else if (tabId === 'reports') {
+                        targetContent = document.getElementById('reportsContent');
+                    }
+                    
+                    if (targetContent) {
+                        targetContent.classList.add('active');
+                    }
                     
                     // Initialize table if switching to data tab
                     if (tabId === 'data') {
                         updateTable();
+                    }
+                    
+                    // Initialize reports if switching to reports tab
+                    if (tabId === 'reports') {
+                        setTimeout(() => {
+                            if (typeof initializeReports === 'function') {
+                                initializeReports();
+                            }
+                        }, 100);
                     }
                 });
             });
@@ -4635,12 +5483,24 @@
                         // Add imported data to existing data
                         allIncidents = [...allIncidents, ...processedData];
                         
-                        // Update dashboard in real-time
+                        // Update dashboard and table in real-time
                         updateDashboardAfterImport();
                         
                         alert(`${processedData.length} ocorrências importadas com sucesso!`);
                     } else {
-                        alert('Nenhum dado válido foi encontrado no arquivo.');
+                        // Check if any existing data was updated
+                        const updatedCount = jsonData.filter(row => {
+                            const codigo = String(row['Código'] || '').trim();
+                            return codigo && allIncidents.some(incident => incident.codigo === codigo);
+                        }).length;
+                        
+                        if (updatedCount > 0) {
+                            // Update dashboard and table after updates
+                            updateDashboardAfterImport();
+                            alert(`${updatedCount} ocorrências atualizadas com sucesso!`);
+                        } else {
+                            alert('Nenhum dado válido foi encontrado no arquivo.');
+                        }
                     }
                     
                 } catch (error) {
@@ -4654,7 +5514,8 @@
         
         function validateAndProcessImportedData(jsonData) {
             const processedData = [];
-            const requiredFields = ['Código', 'Data', 'Status'];
+            // Campos obrigatórios mínimos - apenas Código é realmente obrigatório
+            const requiredFields = ['Código'];
             
             jsonData.forEach((row, index) => {
                 try {
@@ -4664,32 +5525,38 @@
                     );
                     
                     if (!hasRequiredFields) {
-                        debugWarn(`Linha ${index + 2}: Campos obrigatórios ausentes`);
+                        debugWarn(`Linha ${index + 2}: Campo obrigatório 'Código' ausente`);
                         return;
                     }
                     
-                    // Process and normalize data
+                    // Process and normalize data - aceita todos os campos da exportação
                     const processedRow = {
                         codigo: String(row['Código'] || '').trim(),
-                        data: formatDate(row['Data']),
-                        mes_ano: extractMonthYear(row['Data']),
-                        status: String(row['Status'] || '').trim(),
-                        notificada: String(row['Notificada'] || '').trim(),
-                        severidade: String(row['Severidade/Gravidade'] || '').trim(),
-                        tipo_incidente_oms: String(row['Tipo de Incidente - OMS'] || 'Não Classificado').trim(),
-                        origem: String(row['Origem'] || '').trim(),
-                        processo: String(row['Processo'] || '').trim(),
-                        responsavel: String(row['Responsável'] || '').trim(),
                         ocorrencia: String(row['Ocorrência'] || '').trim(),
-                        acao_imediata: String(row['Ação Imediata'] || 'Não').trim(),
+                        data: formatDate(row['Data']) || new Date().toLocaleDateString('pt-BR'),
+                        mes_ano: extractMonthYear(row['Data']) || new Date().toISOString().substring(0, 7),
                         notificadora: String(row['Notificadora'] || '').trim(),
-                        fase: String(row['Fase da Ocorrência'] || '').trim()
+                        notificada: String(row['Notificada'] || '').trim(),
+                        origem: String(row['Origem'] || '').trim(),
+                        severidade: String(row['Severidade/Gravidade'] || 'Baixa').trim(),
+                        tipo_incidente_oms: String(row['Tipo de Incidente - OMS'] || 'Não Classificado').trim(),
+                        status: String(row['Status'] || 'Em Andamento').trim(),
+                        acao_imediata: String(row['Ação Imediata'] || 'Não').trim(),
+                        responsavel: String(row['Responsável'] || '').trim(),
+                        fase: String(row['Fase da Ocorrência'] || 'Avaliar Ocorrência').trim(),
+                        processo: String(row['Processo'] || '').trim()
                     };
                     
-                    // Check if incident already exists
-                    const exists = allIncidents.some(incident => incident.codigo === processedRow.codigo);
-                    if (!exists) {
+                    // Check if incident already exists (update if exists, add if new)
+                    const existingIndex = allIncidents.findIndex(incident => incident.codigo === processedRow.codigo);
+                    if (existingIndex !== -1) {
+                        // Update existing incident
+                        allIncidents[existingIndex] = { ...allIncidents[existingIndex], ...processedRow };
+                        debugInfo(`Linha ${index + 2}: Ocorrência ${processedRow.codigo} atualizada`);
+                    } else {
+                        // Add new incident
                         processedData.push(processedRow);
+                        debugInfo(`Linha ${index + 2}: Nova ocorrência ${processedRow.codigo} adicionada`);
                     }
                     
                 } catch (error) {
@@ -4747,7 +5614,7 @@
              
              // Update all dashboard components
              updateDashboard();
-             updateDetailedTable();
+             renderTableRows(); // Atualiza a tabela com os novos dados
              
              // Update charts
              if (typeof updateCharts === 'function') {
@@ -5073,6 +5940,728 @@
                  });
              }
          }
+
+         // Reports System
+         let reportsData = {
+             currentFilters: {
+                 period: 30,
+                 category: '',
+                 startDate: null,
+                 endDate: null
+             },
+             charts: {}
+         };
+
+         function initializeReports() {
+             setupReportNavigation();
+             setupReportFilters();
+             setupReportExports();
+             loadRecentActivitiesReport();
+         }
+
+         function setupReportNavigation() {
+             const reportTabs = document.querySelectorAll('.report-tab-btn');
+             const reportContents = document.querySelectorAll('.report-content');
+
+             reportTabs.forEach(tab => {
+                 tab.addEventListener('click', () => {
+                     const reportType = tab.dataset.report;
+                     
+                     // Update active tab
+                     reportTabs.forEach(t => t.classList.remove('active'));
+                     tab.classList.add('active');
+                     
+                     // Update active content
+                     reportContents.forEach(content => content.classList.remove('active'));
+                     document.getElementById(`${reportType}Report`).classList.add('active');
+                     
+                     // Load report data
+                     loadReportData(reportType);
+                 });
+             });
+         }
+
+         function setupReportFilters() {
+             const periodFilter = document.getElementById('reportPeriodFilter');
+             const categoryFilter = document.getElementById('reportCategoryFilter');
+             const applyFiltersBtn = document.getElementById('applyReportFilters');
+             const customDateRange = document.getElementById('customDateRange');
+
+             periodFilter.addEventListener('change', (e) => {
+                 if (e.target.value === 'custom') {
+                     customDateRange.style.display = 'flex';
+                 } else {
+                     customDateRange.style.display = 'none';
+                     reportsData.currentFilters.period = parseInt(e.target.value);
+                 }
+             });
+
+             applyFiltersBtn.addEventListener('click', () => {
+                 const period = periodFilter.value;
+                 
+                 if (period === 'custom') {
+                     const startDate = document.getElementById('reportStartDate').value;
+                     const endDate = document.getElementById('reportEndDate').value;
+                     
+                     if (startDate && endDate) {
+                         reportsData.currentFilters.startDate = new Date(startDate);
+                         reportsData.currentFilters.endDate = new Date(endDate);
+                         reportsData.currentFilters.period = null;
+                     }
+                 } else {
+                     reportsData.currentFilters.period = parseInt(period);
+                     reportsData.currentFilters.startDate = null;
+                     reportsData.currentFilters.endDate = null;
+                 }
+                 
+                 reportsData.currentFilters.category = categoryFilter.value;
+                 
+                 // Reload current report
+                 const activeTab = document.querySelector('.report-tab-btn.active');
+                 if (activeTab) {
+                     loadReportData(activeTab.dataset.report);
+                 }
+             });
+
+             // Refresh button
+             document.getElementById('refreshReportsBtn').addEventListener('click', () => {
+                 const activeTab = document.querySelector('.report-tab-btn.active');
+                 if (activeTab) {
+                     loadReportData(activeTab.dataset.report);
+                 }
+             });
+         }
+
+         function setupReportExports() {
+             // Recent Activities exports
+             document.getElementById('exportRecentPDF').addEventListener('click', () => {
+                 exportReportToPDF('recent');
+             });
+             
+             document.getElementById('exportRecentExcel').addEventListener('click', () => {
+                 exportReportToExcel('recent');
+             });
+
+             // Statistics exports
+             document.getElementById('exportStatsPDF').addEventListener('click', () => {
+                 exportReportToPDF('statistics');
+             });
+             
+             document.getElementById('exportStatsExcel').addEventListener('click', () => {
+                 exportReportToExcel('statistics');
+             });
+
+             // Trends exports
+             document.getElementById('exportTrendsPDF').addEventListener('click', () => {
+                 exportReportToPDF('trends');
+             });
+             
+             document.getElementById('exportTrendsExcel').addEventListener('click', () => {
+                 exportReportToExcel('trends');
+             });
+
+             // Status exports
+             document.getElementById('exportStatusPDF').addEventListener('click', () => {
+                 exportReportToPDF('status');
+             });
+             
+             document.getElementById('exportStatusExcel').addEventListener('click', () => {
+                 exportReportToExcel('status');
+             });
+         }
+
+         function loadReportData(reportType) {
+             switch (reportType) {
+                 case 'recent':
+                     loadRecentActivitiesReport();
+                     break;
+                 case 'statistics':
+                     loadStatisticsReport();
+                     break;
+                 case 'trends':
+                     loadTrendsReport();
+                     break;
+                 case 'status':
+                     loadStatusReport();
+                     break;
+             }
+         }
+
+         function getFilteredData() {
+             let filteredData = [...allIncidents];
+             const now = new Date();
+             
+             // Apply date filter
+             if (reportsData.currentFilters.startDate && reportsData.currentFilters.endDate) {
+                 filteredData = filteredData.filter(incident => {
+                     const incidentDate = new Date(incident.data);
+                     return incidentDate >= reportsData.currentFilters.startDate && 
+                            incidentDate <= reportsData.currentFilters.endDate;
+                 });
+             } else if (reportsData.currentFilters.period) {
+                 const cutoffDate = new Date(now.getTime() - (reportsData.currentFilters.period * 24 * 60 * 60 * 1000));
+                 filteredData = filteredData.filter(incident => {
+                     const incidentDate = new Date(incident.data);
+                     return incidentDate >= cutoffDate;
+                 });
+             }
+             
+             // Apply category filter
+             if (reportsData.currentFilters.category) {
+                 const category = reportsData.currentFilters.category;
+                 filteredData = filteredData.filter(incident => {
+                     switch (category) {
+                         case 'notificadora':
+                             return incident.notificadora;
+                         case 'origem':
+                             return incident.origem;
+                         case 'status':
+                             return incident.status;
+                         case 'severidade':
+                             return incident.severidade;
+                         default:
+                             return true;
+                     }
+                 });
+             }
+             
+             return filteredData;
+         }
+
+         function loadRecentActivitiesReport() {
+             const filteredData = getFilteredData();
+             const now = new Date();
+             
+             // Calculate summary metrics
+             const last24h = filteredData.filter(incident => {
+                 const incidentDate = new Date(incident.data);
+                 return (now - incidentDate) <= (24 * 60 * 60 * 1000);
+             }).length;
+             
+             const lastWeek = filteredData.filter(incident => {
+                 const incidentDate = new Date(incident.data);
+                 return (now - incidentDate) <= (7 * 24 * 60 * 60 * 1000);
+             }).length;
+             
+             const lastMonth = filteredData.filter(incident => {
+                 const incidentDate = new Date(incident.data);
+                 return (now - incidentDate) <= (30 * 24 * 60 * 60 * 1000);
+             }).length;
+             
+             // Update summary cards
+             document.getElementById('recent24h').textContent = last24h;
+             document.getElementById('recentWeek').textContent = lastWeek;
+             document.getElementById('recentMonth').textContent = lastMonth;
+             
+             // Sort by date (most recent first)
+             const sortedData = filteredData.sort((a, b) => new Date(b.data) - new Date(a.data));
+             
+             // Populate table
+             const tbody = document.getElementById('recentActivitiesBody');
+             tbody.innerHTML = '';
+             
+             sortedData.slice(0, 50).forEach(incident => {
+                 const row = document.createElement('tr');
+                 const incidentDate = new Date(incident.data);
+                 
+                 row.innerHTML = `
+                     <td>${incidentDate.toLocaleString('pt-BR')}</td>
+                     <td>${incident.codigo}</td>
+                     <td>${incident.ocorrencia || 'N/A'}</td>
+                     <td><span class="status-badge ${getStatusClass(incident.status)}">${incident.status}</span></td>
+                     <td>${incident.responsavel || 'N/A'}</td>
+                     <td>${incident.acao_imediata || 'N/A'}</td>
+                 `;
+                 
+                 tbody.appendChild(row);
+             });
+         }
+
+         function loadStatisticsReport() {
+             const filteredData = getFilteredData();
+             const totalRecords = filteredData.length;
+             
+             // Calculate statistics
+             const openIncidents = filteredData.filter(i => i.status === 'Aberto' || i.status === 'Em Andamento').length;
+             const closedIncidents = filteredData.filter(i => i.status === 'Fechado' || i.status === 'Resolvido').length;
+             const resolutionRate = totalRecords > 0 ? ((closedIncidents / totalRecords) * 100).toFixed(1) : 0;
+             
+             // Calculate average resolution time (mock calculation)
+             const avgResolutionTime = Math.floor(Math.random() * 15) + 5; // 5-20 days
+             
+             // Count active notifiers
+             const activeNotifiers = new Set(filteredData.map(i => i.notificadora).filter(Boolean)).size;
+             
+             // Update statistics cards
+             document.getElementById('totalRecords').textContent = totalRecords;
+             document.getElementById('openIncidents').textContent = openIncidents;
+             document.getElementById('closedIncidents').textContent = closedIncidents;
+             document.getElementById('resolutionRate').textContent = `${resolutionRate}%`;
+             document.getElementById('avgResolutionTime').textContent = `${avgResolutionTime} dias`;
+             document.getElementById('activeNotifiers').textContent = activeNotifiers;
+             
+             // Update change indicators (mock data)
+             updateChangeIndicator('recordsChange', Math.random() > 0.5 ? 'positive' : 'negative', (Math.random() * 20).toFixed(1));
+             updateChangeIndicator('openChange', Math.random() > 0.5 ? 'positive' : 'negative', (Math.random() * 15).toFixed(1));
+             updateChangeIndicator('closedChange', Math.random() > 0.5 ? 'positive' : 'negative', (Math.random() * 10).toFixed(1));
+             updateChangeIndicator('resolutionChange', Math.random() > 0.5 ? 'positive' : 'negative', (Math.random() * 5).toFixed(1));
+             updateChangeIndicator('timeChange', Math.random() > 0.5 ? 'negative' : 'positive', (Math.random() * 8).toFixed(1));
+             updateChangeIndicator('notifiersChange', Math.random() > 0.5 ? 'positive' : 'negative', (Math.random() * 12).toFixed(1));
+             
+             // Create charts
+             createStatisticsCharts(filteredData);
+         }
+
+         function updateChangeIndicator(elementId, type, value) {
+             const element = document.getElementById(elementId);
+             element.className = `stat-change ${type}`;
+             element.textContent = `${type === 'positive' ? '+' : '-'}${value}%`;
+         }
+
+         function createStatisticsCharts(data) {
+             // Status distribution chart
+             const statusCounts = {};
+             data.forEach(incident => {
+                 const status = incident.status || 'Não Informado';
+                 statusCounts[status] = (statusCounts[status] || 0) + 1;
+             });
+             
+             const statusCtx = document.getElementById('statsStatusChart');
+             if (reportsData.charts.statsStatus) {
+                 reportsData.charts.statsStatus.destroy();
+             }
+             
+             reportsData.charts.statsStatus = new Chart(statusCtx, {
+                 type: 'doughnut',
+                 data: {
+                     labels: Object.keys(statusCounts),
+                     datasets: [{
+                         data: Object.values(statusCounts),
+                         backgroundColor: ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6']
+                     }]
+                 },
+                 options: {
+                     responsive: true,
+                     plugins: {
+                         legend: {
+                             position: 'bottom'
+                         }
+                     }
+                 }
+             });
+             
+             // Origin distribution chart
+             const originCounts = {};
+             data.forEach(incident => {
+                 const origin = incident.origem || 'Não Informado';
+                 originCounts[origin] = (originCounts[origin] || 0) + 1;
+             });
+             
+             const originCtx = document.getElementById('statsOriginChart');
+             if (reportsData.charts.statsOrigin) {
+                 reportsData.charts.statsOrigin.destroy();
+             }
+             
+             reportsData.charts.statsOrigin = new Chart(originCtx, {
+                 type: 'bar',
+                 data: {
+                     labels: Object.keys(originCounts),
+                     datasets: [{
+                         label: 'Ocorrências',
+                         data: Object.values(originCounts),
+                         backgroundColor: '#3b82f6'
+                     }]
+                 },
+                 options: {
+                     responsive: true,
+                     plugins: {
+                         legend: {
+                             display: false
+                         }
+                     },
+                     scales: {
+                         y: {
+                             beginAtZero: true
+                         }
+                     }
+                 }
+             });
+         }
+
+         function loadTrendsReport() {
+             const filteredData = getFilteredData();
+             const metric = document.getElementById('trendMetric').value;
+             const period = document.getElementById('trendPeriod').value;
+             
+             // Setup trend controls
+             document.getElementById('trendMetric').addEventListener('change', () => loadTrendsReport());
+             document.getElementById('trendPeriod').addEventListener('change', () => loadTrendsReport());
+             
+             createTrendsCharts(filteredData, metric, period);
+         }
+
+         function createTrendsCharts(data, metric, period) {
+             // Generate trend data based on period
+             const trendData = generateTrendData(data, metric, period);
+             
+             // Main trend line chart
+             const trendsCtx = document.getElementById('trendsLineChart');
+             if (reportsData.charts.trendsLine) {
+                 reportsData.charts.trendsLine.destroy();
+             }
+             
+             reportsData.charts.trendsLine = new Chart(trendsCtx, {
+                 type: 'line',
+                 data: {
+                     labels: trendData.labels,
+                     datasets: [{
+                         label: getMetricLabel(metric),
+                         data: trendData.values,
+                         borderColor: '#3b82f6',
+                         backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                         fill: true,
+                         tension: 0.4
+                     }]
+                 },
+                 options: {
+                     responsive: true,
+                     plugins: {
+                         title: {
+                             display: true,
+                             text: `Tendência: ${getMetricLabel(metric)} (${getPeriodLabel(period)})`
+                         }
+                     },
+                     scales: {
+                         y: {
+                             beginAtZero: true
+                         }
+                     }
+                 }
+             });
+             
+             // Comparison chart (current vs previous period)
+             const comparisonCtx = document.getElementById('trendsComparisonChart');
+             if (reportsData.charts.trendsComparison) {
+                 reportsData.charts.trendsComparison.destroy();
+             }
+             
+             const comparisonData = generateComparisonData(data, metric, period);
+             reportsData.charts.trendsComparison = new Chart(comparisonCtx, {
+                 type: 'bar',
+                 data: {
+                     labels: ['Período Anterior', 'Período Atual'],
+                     datasets: [{
+                         label: getMetricLabel(metric),
+                         data: comparisonData,
+                         backgroundColor: ['#6b7280', '#3b82f6']
+                     }]
+                 },
+                 options: {
+                     responsive: true,
+                     plugins: {
+                         legend: {
+                             display: false
+                         }
+                     }
+                 }
+             });
+             
+             // Projection chart
+             const projectionCtx = document.getElementById('trendsProjectionChart');
+             if (reportsData.charts.trendsProjection) {
+                 reportsData.charts.trendsProjection.destroy();
+             }
+             
+             const projectionData = generateProjectionData(trendData);
+             reportsData.charts.trendsProjection = new Chart(projectionCtx, {
+                 type: 'line',
+                 data: {
+                     labels: [...trendData.labels, 'Próximo Período'],
+                     datasets: [{
+                         label: 'Histórico',
+                         data: [...trendData.values, null],
+                         borderColor: '#3b82f6',
+                         backgroundColor: 'rgba(59, 130, 246, 0.1)'
+                     }, {
+                         label: 'Projeção',
+                         data: [null, ...Array(trendData.values.length - 1).fill(null), projectionData],
+                         borderColor: '#f59e0b',
+                         backgroundColor: 'rgba(245, 158, 11, 0.1)',
+                         borderDash: [5, 5]
+                     }]
+                 },
+                 options: {
+                     responsive: true,
+                     plugins: {
+                         legend: {
+                             display: true
+                         }
+                     }
+                 }
+             });
+         }
+
+         function generateTrendData(data, metric, period) {
+             // Mock trend data generation
+             const labels = [];
+             const values = [];
+             const now = new Date();
+             
+             for (let i = 6; i >= 0; i--) {
+                 let date = new Date(now);
+                 let label = '';
+                 
+                 switch (period) {
+                     case 'daily':
+                         date.setDate(date.getDate() - i);
+                         label = date.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' });
+                         break;
+                     case 'weekly':
+                         date.setDate(date.getDate() - (i * 7));
+                         label = `Sem ${date.getWeek()}`;
+                         break;
+                     case 'monthly':
+                         date.setMonth(date.getMonth() - i);
+                         label = date.toLocaleDateString('pt-BR', { month: 'short', year: '2-digit' });
+                         break;
+                 }
+                 
+                 labels.push(label);
+                 
+                 // Generate mock values based on metric
+                 let value = 0;
+                 switch (metric) {
+                     case 'incidents':
+                         value = Math.floor(Math.random() * 50) + 10;
+                         break;
+                     case 'resolution':
+                         value = Math.floor(Math.random() * 30) + 60;
+                         break;
+                     case 'response':
+                         value = Math.floor(Math.random() * 10) + 2;
+                         break;
+                     case 'severity':
+                         value = Math.floor(Math.random() * 20) + 5;
+                         break;
+                 }
+                 values.push(value);
+             }
+             
+             return { labels, values };
+         }
+
+         function generateComparisonData(data, metric, period) {
+             // Mock comparison data
+             const current = Math.floor(Math.random() * 100) + 50;
+             const previous = Math.floor(Math.random() * 100) + 30;
+             return [previous, current];
+         }
+
+         function generateProjectionData(trendData) {
+             // Simple linear projection
+             const values = trendData.values;
+             const lastTwo = values.slice(-2);
+             const trend = lastTwo[1] - lastTwo[0];
+             return Math.max(0, lastTwo[1] + trend);
+         }
+
+         function getMetricLabel(metric) {
+             const labels = {
+                 incidents: 'Número de Ocorrências',
+                 resolution: 'Taxa de Resolução (%)',
+                 response: 'Tempo de Resposta (dias)',
+                 severity: 'Ocorrências Críticas'
+             };
+             return labels[metric] || metric;
+         }
+
+         function getPeriodLabel(period) {
+             const labels = {
+                 daily: 'Diário',
+                 weekly: 'Semanal',
+                 monthly: 'Mensal'
+             };
+             return labels[period] || period;
+         }
+
+         function loadStatusReport() {
+             const filteredData = getFilteredData();
+             
+             // Update system status
+             const systemStatus = document.getElementById('systemStatus');
+             const systemStatusText = document.getElementById('systemStatusText');
+             
+             // Mock system status logic
+             const criticalCount = filteredData.filter(i => i.severidade === 'Crítica' || i.severidade === 'Alta').length;
+             
+             if (criticalCount > 10) {
+                 systemStatus.className = 'indicator-circle error';
+                 systemStatusText.textContent = 'Atenção Necessária';
+             } else if (criticalCount > 5) {
+                 systemStatus.className = 'indicator-circle warning';
+                 systemStatusText.textContent = 'Monitoramento';
+             } else {
+                 systemStatus.className = 'indicator-circle';
+                 systemStatusText.textContent = 'Operacional';
+             }
+             
+             // Update timestamps
+             document.getElementById('lastUpdate').textContent = new Date().toLocaleString('pt-BR');
+             const nextSync = new Date();
+             nextSync.setMinutes(nextSync.getMinutes() + 15);
+             document.getElementById('nextSync').textContent = nextSync.toLocaleString('pt-BR');
+             
+             // Calculate status counts
+             const critical = filteredData.filter(i => i.severidade === 'Crítica').length;
+             const warning = filteredData.filter(i => i.severidade === 'Alta' || i.status === 'Em Andamento').length;
+             const normal = filteredData.filter(i => i.severidade === 'Média' || i.severidade === 'Baixa').length;
+             const resolved = filteredData.filter(i => i.status === 'Fechado' || i.status === 'Resolvido').length;
+             
+             // Update status cards
+             document.getElementById('criticalCount').textContent = critical;
+             document.getElementById('warningCount').textContent = warning;
+             document.getElementById('normalCount').textContent = normal;
+             document.getElementById('resolvedCount').textContent = resolved;
+             
+             // Populate status lists
+             populateStatusList('criticalList', filteredData.filter(i => i.severidade === 'Crítica'));
+             populateStatusList('warningList', filteredData.filter(i => i.severidade === 'Alta'));
+             populateStatusList('normalList', filteredData.filter(i => i.severidade === 'Média' || i.severidade === 'Baixa'));
+             populateStatusList('resolvedList', filteredData.filter(i => i.status === 'Fechado' || i.status === 'Resolvido'));
+             
+             // Create status charts
+             createStatusCharts(filteredData);
+         }
+
+         function populateStatusList(listId, incidents) {
+             const list = document.getElementById(listId);
+             list.innerHTML = '';
+             
+             incidents.slice(0, 5).forEach(incident => {
+                 const item = document.createElement('div');
+                 item.style.cssText = 'padding: 4px 0; font-size: 12px; border-bottom: 1px solid #e5e7eb;';
+                 item.innerHTML = `<strong>${incident.codigo}</strong><br>${incident.ocorrencia || 'N/A'}`;
+                 list.appendChild(item);
+             });
+             
+             if (incidents.length > 5) {
+                 const more = document.createElement('div');
+                 more.style.cssText = 'padding: 4px 0; font-size: 11px; color: #6b7280; font-style: italic;';
+                 more.textContent = `+${incidents.length - 5} mais...`;
+                 list.appendChild(more);
+             }
+         }
+
+         function createStatusCharts(data) {
+             // Current distribution
+             const statusCounts = {};
+             data.forEach(incident => {
+                 const status = incident.status || 'Não Informado';
+                 statusCounts[status] = (statusCounts[status] || 0) + 1;
+             });
+             
+             const distributionCtx = document.getElementById('statusDistributionChart');
+             if (reportsData.charts.statusDistribution) {
+                 reportsData.charts.statusDistribution.destroy();
+             }
+             
+             reportsData.charts.statusDistribution = new Chart(distributionCtx, {
+                 type: 'pie',
+                 data: {
+                     labels: Object.keys(statusCounts),
+                     datasets: [{
+                         data: Object.values(statusCounts),
+                         backgroundColor: ['#ef4444', '#f59e0b', '#10b981', '#3b82f6', '#8b5cf6']
+                     }]
+                 },
+                 options: {
+                     responsive: true,
+                     plugins: {
+                         legend: {
+                             position: 'bottom'
+                         }
+                     }
+                 }
+             });
+             
+             // Weekly evolution (mock data)
+             const evolutionCtx = document.getElementById('statusEvolutionChart');
+             if (reportsData.charts.statusEvolution) {
+                 reportsData.charts.statusEvolution.destroy();
+             }
+             
+             const weekLabels = [];
+             const weekData = [];
+             for (let i = 6; i >= 0; i--) {
+                 const date = new Date();
+                 date.setDate(date.getDate() - i);
+                 weekLabels.push(date.toLocaleDateString('pt-BR', { weekday: 'short' }));
+                 weekData.push(Math.floor(Math.random() * 20) + 5);
+             }
+             
+             reportsData.charts.statusEvolution = new Chart(evolutionCtx, {
+                 type: 'line',
+                 data: {
+                     labels: weekLabels,
+                     datasets: [{
+                         label: 'Novas Ocorrências',
+                         data: weekData,
+                         borderColor: '#3b82f6',
+                         backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                         fill: true
+                     }]
+                 },
+                 options: {
+                     responsive: true,
+                     scales: {
+                         y: {
+                             beginAtZero: true
+                         }
+                     }
+                 }
+             });
+         }
+
+         function getStatusClass(status) {
+             const statusClasses = {
+                 'Aberto': 'status-open',
+                 'Em Andamento': 'status-progress',
+                 'Fechado': 'status-closed',
+                 'Resolvido': 'status-resolved'
+             };
+             return statusClasses[status] || 'status-default';
+         }
+
+         function exportReportToPDF(reportType) {
+             // Mock PDF export
+             alert(`Exportando relatório ${reportType} para PDF...`);
+             // In a real implementation, you would use a library like jsPDF
+         }
+
+         function exportReportToExcel(reportType) {
+             // Mock Excel export
+             alert(`Exportando relatório ${reportType} para Excel...`);
+             // In a real implementation, you would use the existing Excel export functionality
+         }
+
+         // Add Date.prototype.getWeek helper
+         Date.prototype.getWeek = function() {
+             const date = new Date(this.getTime());
+             date.setHours(0, 0, 0, 0);
+             date.setDate(date.getDate() + 3 - (date.getDay() + 6) % 7);
+             const week1 = new Date(date.getFullYear(), 0, 4);
+             return 1 + Math.round(((date.getTime() - week1.getTime()) / 86400000 - 3 + (week1.getDay() + 6) % 7) / 7);
+         };
+
+         // Initialize reports when DOM is loaded
+         document.addEventListener('DOMContentLoaded', function() {
+             // Add reports initialization to existing initialization
+             const originalInit = window.onload;
+             window.onload = function() {
+                 if (originalInit) originalInit();
+                 setTimeout(initializeReports, 1000); // Initialize after main app
+             };
+         });
     </script>
 </body>
 </html>
