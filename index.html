@@ -1266,6 +1266,17 @@
             margin-right: 12px;
         }
 
+        .chart-icon {
+            font-size: 1.2rem;
+            margin-right: 0.5rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
         .chart-container {
             position: relative;
             height: 400px;
@@ -3392,39 +3403,58 @@
         <!-- Dashboard Content -->
         <div id="dashboardContent" class="tab-content active">
             <section class="main-grid">
+            <!-- 1. Gráfico de Abertura de Ocorrências por Mês -->
             <div class="card">
-                <h3 class="card-title">Status das Ocorrências</h3>
-                <div class="chart-container">
-                    <canvas id="statusChart"></canvas>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3 class="card-title">Severidade/Gravidade</h3>
-                <div class="chart-container">
-                    <canvas id="severidadeChart"></canvas>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3 class="card-title">Abertura de Ocorrências por Mês</h3>
+                <h3 class="card-title">
+                    <span class="chart-icon" aria-label="Calendário">📅</span>
+                    Abertura de Ocorrências por Mês
+                </h3>
                 <div class="chart-container large">
                     <canvas id="aberturaChart"></canvas>
                 </div>
                 <div class="chart-note">Pico de aberturas em Julho/2025 com 13 casos, dos quais 10 ainda em andamento</div>
             </div>
 
+            <!-- 2. Gráfico de Classificação OMS por Mês -->
             <div class="card">
-                <h3 class="card-title">Classificação OMS por Mês</h3>
+                <h3 class="card-title">
+                    <span class="chart-icon" aria-label="Hospital">🏥</span>
+                    Classificação OMS por Mês
+                </h3>
                 <div class="chart-container">
                     <canvas id="tipoIncidenteOmsChart"></canvas>
                 </div>
                 <div class="chart-note">* 96% dos casos não foram com a classificação OMS</div>
             </div>
 
+            <!-- 3. Timeline Mensal -->
             <div class="card">
                 <h3 class="card-title">
-                    <span style="color: var(--sesi-blue);">📋 Unidades Notificadas</span>
+                    <span class="chart-icon" aria-label="Gráfico de linha">📈</span>
+                    Timeline Mensal
+                </h3>
+                <div class="chart-container large">
+                    <canvas id="timelineChart"></canvas>
+                </div>
+            </div>
+
+            <!-- 4. Gráfico de Fase da Ocorrência -->
+            <div class="card">
+                <h3 class="card-title">
+                    <span class="chart-icon" aria-label="Ciclo de processos">🔄</span>
+                    Fase da Ocorrência
+                </h3>
+                <div class="chart-container">
+                    <canvas id="faseChart"></canvas>
+                </div>
+                <div class="chart-note">70% das ocorrências em andamento estão na fase de Análise de Causa e Plano de Ação</div>
+            </div>
+
+            <!-- 5. Unidades Notificadas -->
+            <div class="card">
+                <h3 class="card-title">
+                    <span class="chart-icon" aria-label="Edifício">🏢</span>
+                    Unidades Notificadas
                     <small style="font-size: 12px; color: var(--text-muted); font-weight: normal; margin-left: 8px;">Onde ocorreram as ocorrências</small>
                 </h3>
                 <div class="chart-container">
@@ -3432,9 +3462,11 @@
                 </div>
             </div>
 
+            <!-- 6. Unidades Notificadoras -->
             <div class="card">
                 <h3 class="card-title">
-                    <span style="color: var(--senai-orange);">📤 Unidades Notificadoras</span>
+                    <span class="chart-icon" aria-label="Envelope saindo">📨</span>
+                    Unidades Notificadoras
                     <small style="font-size: 12px; color: var(--text-muted); font-weight: normal; margin-left: 8px;">Quem reportou as ocorrências</small>
                 </h3>
                 <div class="chart-container">
@@ -3442,46 +3474,69 @@
                 </div>
             </div>
 
+            <!-- 7. Gráfico de Origem da Notificação -->
             <div class="card">
-                <h3 class="card-title">Tipos de Ocorrência</h3>
-                <div class="chart-container">
-                    <canvas id="tiposChart"></canvas>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3 class="card-title">Timeline Mensal</h3>
-                <div class="chart-container large">
-                    <canvas id="timelineChart"></canvas>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3 class="card-title">Fase da Ocorrência</h3>
-                <div class="chart-container">
-                    <canvas id="faseChart"></canvas>
-                </div>
-                <div class="chart-note">70% das ocorrências em andamento estão na fase de Análise de Causa e Plano de Ação</div>
-            </div>
-
-            <div class="card">
-                <h3 class="card-title">Origem da Notificação</h3>
+                <h3 class="card-title">
+                    <span class="chart-icon" aria-label="Fonte de dados">🔍</span>
+                    Origem da Notificação
+                </h3>
                 <div class="chart-container">
                     <canvas id="origemChart"></canvas>
                 </div>
             </div>
 
+            <!-- 8. Gráfico de Tipos de Ocorrência -->
             <div class="card">
-                <h3 class="card-title">Processos Envolvidos</h3>
+                <h3 class="card-title">
+                    <span class="chart-icon" aria-label="Categorias">🗂️</span>
+                    Tipos de Ocorrência
+                </h3>
+                <div class="chart-container">
+                    <canvas id="tiposChart"></canvas>
+                </div>
+            </div>
+
+            <!-- 9. Gráfico de Severidade/Gravidade -->
+            <div class="card">
+                <h3 class="card-title">
+                    <span class="chart-icon" aria-label="Níveis de atenção">⚠️</span>
+                    Severidade/Gravidade
+                </h3>
+                <div class="chart-container">
+                    <canvas id="severidadeChart"></canvas>
+                </div>
+            </div>
+
+            <!-- 10. Gráfico de Top Responsáveis -->
+            <div class="card">
+                <h3 class="card-title">
+                    <span class="chart-icon" aria-label="Grupo de pessoas">👥</span>
+                    Top Responsáveis
+                </h3>
+                <div class="chart-container">
+                    <canvas id="responsaveisChart"></canvas>
+                </div>
+            </div>
+
+            <!-- 11. Gráfico de Processos Envolvidos -->
+            <div class="card">
+                <h3 class="card-title">
+                    <span class="chart-icon" aria-label="Engrenagem de processos">⚙️</span>
+                    Processos Envolvidos
+                </h3>
                 <div class="chart-container">
                     <canvas id="processosChart"></canvas>
                 </div>
             </div>
 
+            <!-- 12. Gráfico de Status das Ocorrências -->
             <div class="card">
-                <h3 class="card-title">Top Responsáveis</h3>
+                <h3 class="card-title">
+                    <span class="chart-icon" aria-label="Status checklist">✅</span>
+                    Status das Ocorrências
+                </h3>
                 <div class="chart-container">
-                    <canvas id="responsaveisChart"></canvas>
+                    <canvas id="statusChart"></canvas>
                 </div>
             </div>
         </section>
