@@ -4,61 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel de Ocorrências - SESI/SENAI Alagoas</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'sesi-blue': '#003E7E',
-                        'sesi-red': '#E30613',
-                        'senai-blue': '#00579D',
-                        'senai-orange': '#FF6600',
-                        border: "hsl(var(--border))",
-                        input: "hsl(var(--input))",
-                        ring: "hsl(var(--ring))",
-                        background: "hsl(var(--background))",
-                        foreground: "hsl(var(--foreground))",
-                        primary: {
-                            DEFAULT: "hsl(var(--primary))",
-                            foreground: "hsl(var(--primary-foreground))",
-                        },
-                        secondary: {
-                            DEFAULT: "hsl(var(--secondary))",
-                            foreground: "hsl(var(--secondary-foreground))",
-                        },
-                        destructive: {
-                            DEFAULT: "hsl(var(--destructive))",
-                            foreground: "hsl(var(--destructive-foreground))",
-                        },
-                        muted: {
-                            DEFAULT: "hsl(var(--muted))",
-                            foreground: "hsl(var(--muted-foreground))",
-                        },
-                        accent: {
-                            DEFAULT: "hsl(var(--accent))",
-                            foreground: "hsl(var(--accent-foreground))",
-                        },
-                        popover: {
-                            DEFAULT: "hsl(var(--popover))",
-                            foreground: "hsl(var(--popover-foreground))",
-                        },
-                        card: {
-                            DEFAULT: "hsl(var(--card))",
-                            foreground: "hsl(var(--card-foreground))",
-                        },
-                    },
-                    borderRadius: {
-                        lg: "var(--radius)",
-                        md: "calc(var(--radius) - 2px)",
-                        sm: "calc(var(--radius) - 4px)",
-                    },
-                }
-            }
-        }
-    </script>
     <style>
         :root {
             --sesi-blue: #003E7E;
@@ -72,28 +19,6 @@
             --warning-orange: #fd7e14;
             --text-dark: #2c3e50;
             --text-muted: #6c757d;
-            
-            /* Shadcn UI CSS Variables */
-            --background: 0 0% 100%;
-            --foreground: 222.2 84% 4.9%;
-            --card: 0 0% 100%;
-            --card-foreground: 222.2 84% 4.9%;
-            --popover: 0 0% 100%;
-            --popover-foreground: 222.2 84% 4.9%;
-            --primary: 221.2 83.2% 53.3%;
-            --primary-foreground: 210 40% 98%;
-            --secondary: 210 40% 96%;
-            --secondary-foreground: 222.2 84% 4.9%;
-            --muted: 210 40% 96%;
-            --muted-foreground: 215.4 16.3% 46.9%;
-            --accent: 210 40% 96%;
-            --accent-foreground: 222.2 84% 4.9%;
-            --destructive: 0 84.2% 60.2%;
-            --destructive-foreground: 210 40% 98%;
-            --border: 214.3 31.8% 91.4%;
-            --input: 214.3 31.8% 91.4%;
-            --ring: 221.2 83.2% 53.3%;
-            --radius: 0.5rem;
         }
 
         * {
@@ -1100,267 +1025,6 @@
             padding: 4px 8px;
             border: 1px solid var(--border-gray);
             border-radius: 4px;
-            font-size: 14px;
-        }
-
-        /* Shadcn UI Button Component */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            white-space: nowrap;
-            border-radius: calc(var(--radius) - 2px);
-            font-size: 14px;
-            font-weight: 500;
-            transition: all 0.2s;
-            cursor: pointer;
-            border: none;
-            outline: none;
-            text-decoration: none;
-            user-select: none;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn:focus-visible {
-            outline: 2px solid hsl(var(--ring));
-            outline-offset: 2px;
-        }
-
-        .btn:disabled {
-            pointer-events: none;
-            opacity: 0.5;
-        }
-
-        /* Button Variants */
-        .btn-primary {
-            background: hsl(var(--primary));
-            color: hsl(var(--primary-foreground));
-            padding: 8px 16px;
-            height: 40px;
-        }
-
-        .btn-primary:hover {
-            background: hsl(var(--primary) / 0.9);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px hsl(var(--primary) / 0.3);
-        }
-
-        .btn-secondary {
-            background: hsl(var(--secondary));
-            color: hsl(var(--secondary-foreground));
-            padding: 8px 16px;
-            height: 40px;
-        }
-
-        .btn-secondary:hover {
-            background: hsl(var(--secondary) / 0.8);
-            transform: translateY(-1px);
-        }
-
-        .btn-outline {
-            border: 1px solid hsl(var(--border));
-            background: hsl(var(--background));
-            color: hsl(var(--foreground));
-            padding: 8px 16px;
-            height: 40px;
-        }
-
-        .btn-outline:hover {
-            background: hsl(var(--accent));
-            color: hsl(var(--accent-foreground));
-            transform: translateY(-1px);
-        }
-
-        .btn-clear {
-            background: hsl(var(--destructive));
-            color: hsl(var(--destructive-foreground));
-            padding: 8px 16px;
-            height: 40px;
-        }
-
-        .btn-clear:hover {
-            background: hsl(var(--destructive) / 0.9);
-            transform: translateY(-1px);
-        }
-
-        .btn-apply {
-            background: var(--success-green);
-            color: white;
-            padding: 8px 16px;
-            height: 40px;
-        }
-
-        .btn-apply:hover {
-            background: #218838;
-            transform: translateY(-1px);
-        }
-
-        /* Shadcn UI Card Component */
-        .card {
-            background: hsl(var(--card));
-            color: hsl(var(--card-foreground));
-            border-radius: calc(var(--radius) + 2px);
-            border: 1px solid hsl(var(--border));
-            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-        }
-
-        /* Shadcn UI Input Component */
-        .form-control {
-            display: flex;
-            height: 40px;
-            width: 100%;
-            border-radius: calc(var(--radius) - 2px);
-            border: 1px solid hsl(var(--border));
-            background-color: hsl(var(--background));
-            padding: 8px 12px;
-            font-size: 14px;
-            transition: all 0.2s;
-            color: hsl(var(--foreground));
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: hsl(var(--ring));
-            box-shadow: 0 0 0 2px hsl(var(--ring) / 0.2);
-        }
-
-        .form-control::placeholder {
-            color: hsl(var(--muted-foreground));
-        }
-
-        /* Shadcn UI Badge Component */
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            border-radius: calc(var(--radius) - 2px);
-            padding: 2px 8px;
-            font-size: 12px;
-            font-weight: 600;
-            transition: all 0.2s;
-            border: 1px solid transparent;
-        }
-
-        .badge-primary {
-            background: hsl(var(--primary));
-            color: hsl(var(--primary-foreground));
-        }
-
-        .badge-secondary {
-            background: hsl(var(--secondary));
-            color: hsl(var(--secondary-foreground));
-        }
-
-        .badge-success {
-            background: var(--success-green);
-            color: white;
-        }
-
-        .badge-warning {
-            background: var(--warning-orange);
-            color: white;
-        }
-
-        /* Shadcn UI Progress Component */
-        .progress {
-            position: relative;
-            height: 8px;
-            width: 100%;
-            overflow: hidden;
-            border-radius: calc(var(--radius));
-            background: hsl(var(--secondary));
-        }
-
-        .progress-indicator {
-            height: 100%;
-            width: 100%;
-            flex: 1;
-            background: hsl(var(--primary));
-            transition: all 0.5s ease;
-            border-radius: calc(var(--radius));
-        }
-
-        /* Shadcn UI Table Component */
-        .table-container {
-            position: relative;
-            width: 100%;
-            overflow: auto;
-            border-radius: calc(var(--radius) + 2px);
-            border: 1px solid hsl(var(--border));
-        }
-
-        .table {
-            width: 100%;
-            caption-side: bottom;
-            font-size: 14px;
-            border-collapse: collapse;
-        }
-
-        .table th {
-            height: 48px;
-            padding: 12px;
-            text-align: left;
-            font-weight: 600;
-            color: hsl(var(--muted-foreground));
-            background: hsl(var(--muted) / 0.5);
-            border-bottom: 1px solid hsl(var(--border));
-        }
-
-        .table td {
-            padding: 12px;
-            align-items: center;
-            border-bottom: 1px solid hsl(var(--border));
-        }
-
-        .table tbody tr:hover {
-            background: hsl(var(--muted) / 0.5);
-        }
-
-        /* Shadcn UI Tabs Component */
-        .tabs-list {
-            display: inline-flex;
-            height: 40px;
-            align-items: center;
-            justify-content: center;
-            border-radius: calc(var(--radius) - 2px);
-            background: hsl(var(--muted));
-            padding: 4px;
-            color: hsl(var(--muted-foreground));
-        }
-
-        .tab-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            white-space: nowrap;
-            border-radius: calc(var(--radius) - 4px);
-            padding: 6px 12px;
-            font-size: 14px;
-            font-weight: 500;
-            transition: all 0.2s;
-            cursor: pointer;
-            border: none;
-            background: transparent;
-            color: hsl(var(--muted-foreground));
-        }
-
-        .tab-btn:hover {
-            color: hsl(var(--foreground));
-        }
-
-        .tab-btn.active {
-            background: hsl(var(--background));
-            color: hsl(var(--foreground));
-            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-        }
-            border: 1px solid var(--border-gray);
-            border-radius: 4px;
             font-size: 13px;
         }
 
@@ -1612,7 +1276,7 @@
     <main class="container">
         <!-- Tab Navigation -->
         <section class="tabs-container">
-            <div class="tabs-list">
+            <div class="tab-navigation">
                 <button class="tab-btn active" id="dashboardTab" data-tab="dashboard">
                     <span class="tab-icon">📊</span>
                     <span>Dashboard</span>
@@ -1628,7 +1292,7 @@
             <div class="filters-header">
                 <h3 class="filters-title">
                     <span>Filtros</span>
-                    <span class="badge filter-badge" id="filterBadge">0</span>
+                    <span class="filter-badge" id="filterBadge">0</span>
                 </h3>
                 <button class="filters-toggle" id="filtersToggle" aria-label="Expandir/Recolher Filtros">
                     <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -1734,8 +1398,8 @@
                     </div>
                 </div>
                 <div class="filters-actions">
-                    <button class="btn btn-clear button" id="clearFilters">Limpar Filtros</button>
-                <button class="btn btn-apply button btn-primary" id="applyFilters">Aplicar Filtros</button>
+                    <button class="btn btn-clear" id="clearFilters">Limpar Filtros</button>
+                    <button class="btn btn-apply" id="applyFilters">Aplicar Filtros</button>
                 </div>
                 <div class="filters-summary" id="filtersSummary">
                     Exibindo <strong>50</strong> de 50 ocorrências
@@ -1759,8 +1423,8 @@
             <div class="card metric-card info">
                 <div class="metric-value" id="taxaMetric">66%</div>
                 <div class="metric-label">Taxa de Conclusão</div>
-                <div class="progress">
-                    <div class="progress-indicator" id="progressFill" style="width: 66%;"></div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill" style="width: 66%;"></div>
                 </div>
             </div>
         </section>
@@ -1932,10 +1596,10 @@
                         </div>
                         <div class="action-buttons">
                             <input type="file" id="importExcelInput" accept=".xlsx,.xls" style="display: none;">
-                            <button class="btn btn-secondary button" id="importBtn">
+                            <button class="btn btn-secondary" id="importBtn">
                                 <span>📤</span> Importar Excel
                             </button>
-                            <button class="btn btn-primary button" id="exportBtn">
+                            <button class="btn btn-primary" id="exportBtn">
                                 <span>📥</span> Exportar Excel
                             </button>
                         </div>
@@ -1957,7 +1621,7 @@
                 </div>
                 
                 <div class="table-container">
-                    <table class="table" id="dataTable">
+                    <table class="data-table" id="dataTable">
                         <thead>
                             <tr>
                                 <th data-sort="codigo">Código <span class="sort-arrow"></span></th>
@@ -1985,9 +1649,9 @@
                 <div class="table-pagination-bottom">
                     <div class="pagination-info" id="paginationInfo">Mostrando 1 até 25 de 50 registros</div>
                     <div class="pagination-controls">
-                        <button class="btn btn-outline button" id="prevPage" disabled>Anterior</button>
+                        <button class="btn btn-outline" id="prevPage" disabled>Anterior</button>
                         <div class="page-numbers" id="pageNumbers"></div>
-                        <button class="btn btn-outline button" id="nextPage">Próximo</button>
+                        <button class="btn btn-outline" id="nextPage">Próximo</button>
                     </div>
                 </div>
             </section>
@@ -2009,23 +1673,23 @@
                     </div>
                 </div>
                 <div class="progress-container" id="progressContainer">
-                    <div class="progress">
-                        <div class="progress-indicator" id="progressFill"></div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
                     </div>
                 </div>
                 <div class="status-message" id="statusMessage"></div>
                 <div style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px;">
-                    <button class="btn btn-secondary button" id="cancelExport">Cancelar</button>
-                    <button class="btn btn-primary button" id="confirmExport">Exportar</button>
+                    <button class="btn btn-secondary" id="cancelExport">Cancelar</button>
+                    <button class="btn btn-primary" id="confirmExport">Exportar</button>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Back to Top Button -->
-    <button class="back-to-top button" id="backToTop" aria-label="Voltar ao topo">
-            ↑
-        </button>
+    <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+        ↑
+    </button>
 
     <script>
         // Color palettes based on SESI/SENAI branding
@@ -3911,10 +3575,10 @@
                         <td>Incidente envolvendo o Paciente</td>
                         <td>${highlightSearch(incident.severidade)}</td>
                         <td>${highlightSearch(incident.tipo_incidente_oms)}</td>
-                        <td><span class="badge status-badge ${incident.status.toLowerCase().replace(' ', '-').replace('í', 'i')}">${incident.status}</span></td>
+                        <td><span class="status-badge ${incident.status.toLowerCase().replace(' ', '-').replace('í', 'i')}">${incident.status}</span></td>
                         <td>${highlightSearch(incident.acao_imediata)}</td>
                         <td>${highlightSearch(incident.responsavel)}</td>
-                        <td><span class="badge fase-badge ${getFaseClass(incident.fase)}">${incident.fase}</span></td>
+                        <td><span class="fase-badge ${getFaseClass(incident.fase)}">${incident.fase}</span></td>
                         <td style="font-size: 11px;">${highlightSearch(incident.processo)}</td>
                     </tr>
                 `;
